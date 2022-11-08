@@ -61,7 +61,7 @@
     "vite-tsconfig-paths": "^3.5.2"
   },
   "lint-staged": {
-    "*.css": [
+    "*.scss": [
       "npm run lint-styles",
       "npm run lint-format"
     ],
@@ -78,7 +78,7 @@
     "lint-all": "npm run lint-all",
     "lint-code": "eslint --fix --ext .ts,.tsx .",
     "lint-format": "prettier --write .",
-    "lint-styles": "stylelint '**/*.css'",
+    "lint-styles": "stylelint '**/*.scss'",
     "prepare": "husky install",
     "start": "vite",
     "test": "npx playwright test"
