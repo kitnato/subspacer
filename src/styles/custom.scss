@@ -1,0 +1,12 @@
+@font-face {
+  font-family: Montserrat-Regular;
+  font-style: normal;
+  font-weight: normal;
+  src: local("Montserrat-Regular"), url("./Montserrat-Regular.ttf") format("truetype");
+}
+
+$font-family-base: Montserrat-Regular;
+$primary: #562b8e;
+$secondary: #f3f0f7;
+
+@import "~bootstrap/scss/bootstrap";
