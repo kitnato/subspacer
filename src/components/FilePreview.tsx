@@ -5,7 +5,7 @@ import { useRecoilState } from "recoil";
 
 import { fileMapping } from "@subspacer/state/atoms";
 
-export default function ({
+export function FilePreview({
   allowDeletion,
   allowDownload,
   name,
@@ -28,13 +28,8 @@ export default function ({
       const { local } = fileMappingValue[name];
 
       if (local) {
-        setFileMapping((current) => {
-          const newMapping = { ...current };
-
-          delete newMapping[name];
-
-          return newMapping;
-        });
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        setFileMapping(({ [name]: _, ...newMapping }) => newMapping);
       }
     }
   };

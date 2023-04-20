@@ -1,8 +1,8 @@
-interface ImportMeta {
+type ImportMeta = {
   readonly env: ImportMetaEnv;
-}
+};
 
-interface ImportMetaEnv {
+type ImportMetaEnv = {
   readonly VITE_FARMER_WS_PROVIDER: string;
   readonly VITE_NODE_WS_PROVIDER: string;
-}
+};

@@ -1,7 +1,7 @@
-import { Keyring } from "@polkadot/api";
+import type { Keyring } from "@polkadot/api";
 import { atom } from "recoil";
 
-import { API, SubspacerError } from "@subspacer/types";
+import type { API, SubspacerError } from "@subspacer/types";
 
 export const api = atom<API | null>({
   default: null,

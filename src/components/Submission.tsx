@@ -13,8 +13,8 @@ import {
 } from "react-bootstrap";
 import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
 
-import FilePreview from "@subspacer/components/FilePreview";
-import useUpload from "@subspacer/hooks/useUpload";
+import { FilePreview } from "@subspacer/components/FilePreview";
+import { useUpload } from "@subspacer/hooks/useUpload";
 import { api, error, fileMapping, isLoading } from "@subspacer/state/atoms";
 import {
   ACCEPTED_MIME_TYPES,
@@ -22,7 +22,7 @@ import {
   MAXIMUM_FILE_SIZE,
 } from "@subspacer/utilities/constants";
 
-export default function () {
+export function Submission() {
   const [fileMappingValue, setFileMapping] = useRecoilState(fileMapping);
   const apiValue = useRecoilValue(api);
   const resetError = useResetRecoilState(error);
@@ -67,7 +67,7 @@ export default function () {
             return;
           }
 
-          if (fileMappingValue[name]) {
+          if (fileMappingValue[name].objectID) {
             setError({
               description: `"${name}" was already chosen.`,
               domain: errorDomain,

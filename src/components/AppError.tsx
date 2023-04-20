@@ -4,7 +4,7 @@ import { useRecoilValue } from "recoil";
 
 import { error } from "@subspacer/state/atoms";
 
-export default function () {
+export function AppError() {
   const { description, domain, isShowing } = useRecoilValue(error);
   const [show, setShow] = useState(false);
 

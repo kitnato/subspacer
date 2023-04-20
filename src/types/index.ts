@@ -1,12 +1,12 @@
-import { ApiPromise, WsProvider } from "@polkadot/api";
+import type { ApiPromise, WsProvider } from "@polkadot/api";
 
-export interface API {
+export type API = {
   endpoint: ApiPromise;
   provider: WsProvider;
-}
+};
 
-export interface SubspacerError {
+export type SubspacerError = {
   description: string;
   domain: string;
   isShowing: boolean;
-}
+};

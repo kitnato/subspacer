@@ -4,7 +4,7 @@ import { useResetRecoilState, useSetRecoilState } from "recoil";
 import { api, error, isLoading } from "@subspacer/state/atoms";
 import { FARMER_WS_PROVIDER, NODE_WS_PROVIDER } from "@subspacer/utilities/constants";
 
-export default function () {
+export function useAPI() {
   const resetError = useResetRecoilState(error);
   const setAPI = useSetRecoilState(api);
   const setError = useSetRecoilState(error);
@@ -12,7 +12,7 @@ export default function () {
 
   return async () => {
     resetError();
-    setLoading("Connecting API");
+    setLoading("Connecting to API");
 
     try {
       const farmerProvider = new WsProvider(FARMER_WS_PROVIDER);

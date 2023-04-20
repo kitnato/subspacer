@@ -1,5 +1,5 @@
-import { Web3AccountsOptions } from "@polkadot/extension-inject/types";
-import { KeyringOptions } from "@polkadot/keyring/types";
+import type { Web3AccountsOptions } from "@polkadot/extension-inject/types";
+import type { KeyringOptions } from "@polkadot/keyring/types";
 
 export const ACCEPTED_MIME_TYPES = [
   "application/json",

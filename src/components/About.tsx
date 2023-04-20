@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { QuestionSquare } from "react-bootstrap-icons";
 
-export default function () {
+export function About() {
   const [isShowing, setShowing] = useState(false);
 
   const handleShow = (state: boolean) => setShowing(state);

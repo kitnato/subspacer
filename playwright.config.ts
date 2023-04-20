@@ -1,5 +1,4 @@
-import type { PlaywrightTestConfig } from "@playwright/test";
-import { devices } from "@playwright/test";
+import  { type PlaywrightTestConfig, devices } from "@playwright/test";
 
 /**
  * Read environment variables from file.
@@ -113,4 +112,5 @@ const config: PlaywrightTestConfig = {
   workers: process.env.CI ? 1 : undefined,
 };
 
+// eslint-disable-next-line import/no-default-export
 export default config;

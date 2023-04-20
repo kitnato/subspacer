@@ -5,7 +5,7 @@ import { useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
 import { api, error, isLoading, keyring, selectedAddress } from "@subspacer/state/atoms";
 import { SUPPORTED_WALLETS } from "@subspacer/utilities/constants";
 
-export default function () {
+export function useUpload() {
   const apiValue = useRecoilValue(api);
   const keyringValue = useRecoilValue(keyring);
   const selectedAddressValue = useRecoilValue(selectedAddress);
@@ -59,8 +59,7 @@ export default function () {
             setLoading(false);
             reject(
               setError({
-                description:
-                  (internalError as Error).toString() || "signAndSend() returned an error.",
+                description: internalError?.toString() ?? "signAndSend() returned an error.",
                 domain: errorDomain,
                 isShowing: true,
               })

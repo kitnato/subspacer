@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Button, Card, Form, OverlayTrigger, Stack, Table, Tooltip } from "react-bootstrap";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
-import ConnectionStatus from "@subspacer/components/ConnectionStatus";
-import useAPI from "@subspacer/hooks/useAPI";
-import useWallet from "@subspacer/hooks/useWallet";
+import { ConnectionStatus } from "@subspacer/components/ConnectionStatus";
+import { useAPI } from "@subspacer/hooks/useAPI";
+import { useWallet } from "@subspacer/hooks/useWallet";
 import { api, isLoading, keyring, selectedAddress } from "@subspacer/state/atoms";
 import { getAccountName } from "@subspacer/utilities/helpers";
 
-export default function () {
+export function Connection() {
   const [selectedAddressValue, setSelectedAddress] = useRecoilState(selectedAddress);
   const apiValue = useRecoilValue(api);
   const keyringValue = useRecoilValue(keyring);

@@ -1,11 +1,11 @@
 import { Button, Card, Col, OverlayTrigger, Row, Stack, Tooltip } from "react-bootstrap";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
-import FilePreview from "@subspacer/components/FilePreview";
-import useRetrieve from "@subspacer/hooks/useRetrieve";
+import { FilePreview } from "@subspacer/components/FilePreview";
+import { useRetrieve } from "@subspacer/hooks/useRetrieve";
 import { api, fileMapping, isLoading } from "@subspacer/state/atoms";
 
-export default function () {
+export function Retrieval() {
   const [fileMappingValue, setFileMapping] = useRecoilState(fileMapping);
   const apiValue = useRecoilValue(api);
   const setLoading = useSetRecoilState(isLoading);
@@ -14,7 +14,9 @@ export default function () {
 
   const fileMappingEntries = Object.entries(fileMappingValue);
   const fileMappingObjectIDs = fileMappingEntries.filter(([, { objectID }]) => objectID);
-  const fileMappingRemoteObjects = fileMappingEntries.filter(([, { remote }]) => remote);
+  const fileMappingRemoteObjects = fileMappingEntries.filter(
+    ([, { remote }]) => remote.BYTES_PER_ELEMENT > 0
+  );
   const areAllFilesRetrieved =
     fileMappingEntries.length > 0 &&
     fileMappingEntries.reduce(
@@ -30,7 +32,7 @@ export default function () {
         setLoading("Retrieving");
 
         for (const [name, { objectID, remote }] of fileMappingEntries) {
-          if (objectID && !remote) {
+          if (objectID && remote.length > 0) {
             const object = await doRetrieve(objectID);
 
             // if (object) {

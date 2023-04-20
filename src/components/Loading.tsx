@@ -3,7 +3,7 @@ import { useRecoilValue } from "recoil";
 
 import { isLoading } from "@subspacer/state/atoms";
 
-export default function () {
+export function Loading() {
   const isLoadingValue = useRecoilValue(isLoading);
 
   const label = typeof isLoadingValue === "string" ? isLoadingValue : "Loading";

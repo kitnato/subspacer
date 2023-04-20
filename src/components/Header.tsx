@@ -1,10 +1,10 @@
 import { Badge, Button, Container, Nav, Navbar, Stack } from "react-bootstrap";
 import { Github } from "react-bootstrap-icons";
 
-import About from "@subspacer/components/About";
+import { About } from "@subspacer/components/About";
 import { version } from "@subspacer/config";
 
-export default function () {
+export function Header() {
   return (
     <Navbar className="mb-4" collapseOnSelect expand="lg">
       <Container>

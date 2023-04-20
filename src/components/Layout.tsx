@@ -1,13 +1,13 @@
 import { Col, Container, Row, Stack } from "react-bootstrap";
 
-import Connection from "@subspacer/components/Connection";
-import Error from "@subspacer/components/Error";
-import Header from "@subspacer/components/Header";
-import Loading from "@subspacer/components/Loading";
-import Retrieval from "@subspacer/components/Retrieval";
-import Submission from "@subspacer/components/Submission";
+import { AppError } from "@subspacer/components/AppError";
+import { Connection } from "@subspacer/components/Connection";
+import { Header } from "@subspacer/components/Header";
+import { Loading } from "@subspacer/components/Loading";
+import { Retrieval } from "@subspacer/components/Retrieval";
+import { Submission } from "@subspacer/components/Submission";
 
-export default function () {
+export function Layout() {
   return (
     <Container>
       <Stack gap={3}>
@@ -23,7 +23,7 @@ export default function () {
           </Col>
         </Row>
 
-        <Error />
+        <AppError />
 
         <Retrieval />
       </Stack>

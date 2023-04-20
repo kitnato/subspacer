@@ -3,7 +3,7 @@ import { useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
 
 import { api, error, isLoading } from "@subspacer/state/atoms";
 
-export default function () {
+export function useRetrieve() {
   const apiValue = useRecoilValue(api);
   const resetError = useResetRecoilState(error);
   const setError = useSetRecoilState(error);
@@ -24,7 +24,7 @@ export default function () {
 
       setLoading(false);
 
-      if (result && result.data) {
+      if (result.data) {
         return hexToU8a(result.data);
       }
 
